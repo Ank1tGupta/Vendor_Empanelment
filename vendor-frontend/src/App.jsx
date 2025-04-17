@@ -1,16 +1,16 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
-import LandingPage from "./pages/LandingPage";
 import VendorDashboard from "./pages/VendorDashboard";
 import CompanyDashboard from "./pages/CompanyDashboard";
 import PrivateRoute from "./components/PrivateRoute";
+import Login from "./pages/Onboarding/Login";
+import Register from "./pages/Onboarding/Register";
+import LandingPage from "./pages/Onboarding/Landing/LandingPage";
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<LandingPage />} />
+        <Route path="/" element={<LandingPage/>} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
 
