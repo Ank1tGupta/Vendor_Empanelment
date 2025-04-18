@@ -5,6 +5,7 @@ import LandingPage from "./pages/LandingPage";
 import VendorDashboard from "./pages/VendorDashboard";
 import CompanyDashboard from "./pages/CompanyDashboard";
 import PrivateRoute from "./components/PrivateRoute";
+import PaymentPage from "./pages/PaymentPage";
 
 function App() {
   return (
@@ -22,6 +23,14 @@ function App() {
         <Route
           path="/company/dashboard"
           element={<PrivateRoute role="company"><CompanyDashboard /></PrivateRoute>}
+        />
+        <Route
+          path="/payment/:vendorId"
+          element={
+            <PrivateRoute role="company">
+              <PaymentPage />
+            </PrivateRoute>
+          }
         />
       </Routes>
     </Router>

@@ -7,9 +7,15 @@ const api = axios.create({
 
 api.interceptors.request.use((config) => {
   const token = getToken();
-  if (token) {
+
+  // Don't attach token to login or register requests
+  const noAuthNeeded = ["/login/", "/register/"];
+  const isAuthRoute = noAuthNeeded.some((route) => config.url.includes(route));
+
+  if (token && !isAuthRoute) {
     config.headers.Authorization = `Bearer ${token}`;
   }
+
   return config;
 });
 
